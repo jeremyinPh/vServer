@@ -1,12 +1,24 @@
 package v.pubg.lol.service.impl;
 
-/**
- * Created by CodeGenerator on 2020/03/07.
- */
-//@Service
-//@Transactional
-//public class TagsmapServiceImpl extends AbstractService<Tagsmap> implements TagsmapService {
-//    @Resource
-//    private TagsmapMapper tagsmapMapper;
-//
-//}
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import v.pubg.lol.dao.TagsmapMapper;
+import v.pubg.lol.model.Tagsmap;
+
+import java.util.List;
+
+
+@Service
+public class TagsmapServiceImpl {
+
+    @Autowired
+    private TagsmapMapper tagsmapMapper;
+
+    public Integer insert(Tagsmap item) {
+        return tagsmapMapper.insert(item);
+    }
+
+    public List<Tagsmap> getAll() {
+        return tagsmapMapper.getAll();
+    }
+}

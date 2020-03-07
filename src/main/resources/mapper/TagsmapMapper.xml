@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="v.pubg.lol.dao.TagsmapMapper">
-  <resultMap id="BaseResultMap" type="v.pubg.lol.model.Tagsmap">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="tagid" jdbcType="INTEGER" property="tagid" />
-    <result column="tid" jdbcType="VARCHAR" property="tid" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="v.pubg.lol.model.Tagsmap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="tagid" jdbcType="INTEGER" property="tagid"/>
+        <result column="tid" jdbcType="VARCHAR" property="tid"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        tagid, tid
+    </sql>
+
+    <insert id="insert" parameterType="v.pubg.lol.model.Tagsmap">
+        insert into tagsmap (tagid, tid)
+        values (#{tagid,jdbcType=INTEGER}, #{tid,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+      <include refid="Base_Column_List"/>
+        from tagsmap
+    </select>
+
 </mapper>
